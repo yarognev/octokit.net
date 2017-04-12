@@ -120,7 +120,7 @@ namespace Octokit
                 .Union(Config, new WebHookConfigComparer())
                 .ToDictionary(k => k.Key, v => v.Value);
 
-            return new NewRepositoryHook(Name, config);
+            return new NewRepositoryHook(Name, config){ Active = Active, Events = Events };
         }
 
         Dictionary<string, string> GetWebHookConfig()
